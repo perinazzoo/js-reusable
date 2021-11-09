@@ -1,18 +1,18 @@
-type ObjectLiteral<T> = {
+type ObjectLiteral<T = string | number | boolean> = {
     [key: string]: T
 }
 
-type QueryParamsReturn = {
+type QueryParamsReturn<T> = {
     get: () => ObjectLiteral<string>,
-    set: (object: ObjectLiteral<string | number | boolean>) => void
+    set: (object: T) => void
 }
 
-export function queryParams (): QueryParamsReturn {
-    function get () {
+export function queryParams<T extends ObjectLiteral> (): QueryParamsReturn<T> {
+    function get (): ObjectLiteral<string> {
         return Object.fromEntries(new URLSearchParams(window.location.search))
     }
 
-    function set (object: ObjectLiteral<string | number | boolean>) {
+    function set (object: T): void {
         const queryObject = {}
 
         Object.entries(object).forEach(([key, value]) => {
