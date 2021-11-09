@@ -1,1 +1,1 @@
-# js-reusable
+# ts-reusables
