@@ -1,4 +1,4 @@
-type ObjectLiteral<T = string | number | boolean> = {
+type ObjectLiteral<T = string | number | boolean | ObjectLiteral<any> | any[]> = {
     [key: string]: T
 }
 

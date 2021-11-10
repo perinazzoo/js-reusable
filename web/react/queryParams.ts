@@ -1,7 +1,7 @@
 // you will need browserHistory from react-router-dom
 import history from '?'
 
-type ObjectLiteral<T = string | number | boolean> = {
+type ObjectLiteral<T = string | number | boolean | ObjectLiteral<any> | any[]> = {
     [key: string]: T
 }
 
