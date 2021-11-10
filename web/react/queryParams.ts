@@ -6,7 +6,7 @@ type ObjectLiteral<T = string | number | boolean> = {
 }
 
 type QueryParamsReturn<T> = {
-    get: () => ObjectLiteral<string>,
+    get: () => ObjectLiteral<string>
     set: (object: T) => void
 }
 
@@ -16,11 +16,11 @@ export function queryParams<T extends ObjectLiteral> (): QueryParamsReturn<T> {
     }
 
     function set (object: T): void {
-        const queryObject = {}
+        const queryObject: ObjectLiteral<string> = {}
 
         Object.entries(object).forEach(([key, value]) => {
-            if (![undefined, null].includes(value)) {
-                queryObject[key] = value
+            if (value || value === false) {
+                queryObject[key] = String(value)
             }
         })
 
