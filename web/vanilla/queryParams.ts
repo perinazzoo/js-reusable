@@ -24,6 +24,7 @@ export function queryParams<T extends ObjectLiteral> (): QueryParamsReturn<T> {
         const queryString = new URLSearchParams(queryObject).toString()
 
         history.pushState({}, null, window.location.pathname + '?' + queryString)
+        // or window.location.search = queryString
     }
 
     return {
