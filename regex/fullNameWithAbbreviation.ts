@@ -1,0 +1,1 @@
+export const fullName: RegExp = /^(?:([a-zA-ZÀ-ÿ]+){3,})( (?:[a-zA-ZÀ-ÿ.]+){1,})*(?: ([a-zA-ZÀ-ÿ]+){3,})$/g
